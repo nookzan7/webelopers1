@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://semantic-ui.com/dist/semantic.min.css">
+</head>
+<body>
+<nav id="id_navbar" class="ui secondary  menu">
+
+    <a id="id_navbar_home" class="active item" href="/">
+        صفحه اصلی
+    </a>
+    <a id="id_navbar_login" class="item" href="/login">
+        ورود
+    </a>
+    <a id="id_navbar_signup" class="item" href="/signUp">
+        ثبت نام
+    </a>
+    <a id="id_navbar_logout" class="item" href="/logout">خروج</a>
+    <a id="id_navbar_contact_us" class="item" href="/contactUs">تماس با ما</a>
+</nav>
+
+<form action="{% url "createUser"  %}" method="post" class="ui equal width form" style="   margin: auto;width: 50%;border: 3px solid green;padding: 10px;">
+    {% csrf_token %}
+    <div class="fields">
+        <div class="field">
+            <label>نام</label>
+            <input id="id_first_name" name="first_name" type="text" placeholder="ّنام">
+        </div>
+        <div class="field">
+            <label>نام کاربری</label>
+            <input id="id_username" name="username" type="text">
+        </div>
+        <div class="field">
+            <label>گذرواژه</label>
+            <input id="id_password1" name="password" type="password">
+        </div>
+    </div>
+    <div class="fields">
+        <div class="field">
+            <label>نام خانوادگی</label>
+            <input id="id_last_name" type="text" name="last_name" placeholder="نام خانوادگی">
+        </div>
+        <div class="field">
+            <label>ایمیل</label>
+            <input id="id_email" type="email" name="email" placeholder="hazelnut@gmail.com">
+        </div>
+        <div class="field">
+            <label>تکرار گذرواژه</label>
+            <input id="id_password2" type="password">
+        </div>
+        <div class="ui form">
+  <div class="grouped fields">
+    <label>دانشجو یا استاد بودن خود را مشخص کنید</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio"  id="id_type0" name="student" checked="checked">
+        <label>دانشجو</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" id="id_type1" name="teacher">
+        <label>استاد</label>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <button id="id_submit" style="color: deepskyblue;" class="ui animated fade button" tabindex="0">
+
+        <div class="visible content">Sign Up</div>
+        <div class="hidden content">
+            Submit
+        </div>
+
+    </button>
+
+</form>
+</body>
+</html>
